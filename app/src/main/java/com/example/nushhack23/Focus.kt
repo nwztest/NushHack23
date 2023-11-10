@@ -28,38 +28,43 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 
-data class FocusGame(val name: String, val description: String, val imageVector: ImageVector)
+data class FocusGame(val name: String, val description: String, val imageVector: ImageVector, val route: String)
+
 val focusGames = listOf(
-    FocusGame("Reaction Time", "How fast can you react?", Icons.Filled.Timer),
-    FocusGame("Cup Shuffle", "How long can you keep your attention for?", Icons.Filled.Shuffle),
-    FocusGame("Card Match", "Can you remember what is where?", Icons.Filled.Dashboard),
+    FocusGame("Reaction Time", "How fast can you react?", Icons.Filled.Timer, "reaction_game"),
+    FocusGame("Cup Shuffle", "How long can you keep your attention for?", Icons.Filled.Shuffle, "cup_shuffle"),
+    FocusGame("Card Match", "Can you remember what is where?", Icons.Filled.Dashboard, "card_match"),
     )
 
 @Composable
-fun FocusFragment() {
+fun FocusFragment(navController: NavHostController) {
     Column() {
         focusGames.forEach { game ->
-            GameCard(focusGame = game)
+            GameCard(navController, game)
         }
     }
 }
 
 @Composable
-fun GameCard(focusGame: FocusGame) {
-    Surface(color=Color(144, 202, 249, 255), modifier = Modifier
-        .fillMaxWidth()
-        .padding(10.dp)
-        .clip(RoundedCornerShape(10.dp))
-        .border(BorderStroke(1.dp, Color.Black), RoundedCornerShape(10.dp)),
+fun GameCard(navController: NavHostController, focusGame: FocusGame) {
+    Surface(
+        color = Color(144, 202, 249, 255),
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                navController.navigate(focusGame.route)
+            }
+            .padding(10.dp)
+            .clip(RoundedCornerShape(10.dp))
+            .border(BorderStroke(1.dp, Color.Black), RoundedCornerShape(10.dp)),
     ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(10.dp)
-                .clickable {
-
-                },
+                .padding(10.dp),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             Icon(
@@ -79,8 +84,23 @@ fun GameCard(focusGame: FocusGame) {
     }
 }
 
-@Preview
 @Composable
-fun previewFoc() {
-    FocusFragment()
+fun ReactionGame() {
+    TODO("Not yet implemented")
 }
+
+@Composable
+fun CupShuffleGame() {
+    TODO("Not yet implemented")
+}
+
+@Composable
+fun CardMatchGame() {
+    TODO("Not yet implemented")
+}
+
+//@Preview
+//@Composable
+//fun previewFoc() {
+//    FocusFragment()
+//}
