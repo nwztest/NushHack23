@@ -20,7 +20,7 @@ fun BottomNavGraph(navController: NavHostController) {
                 FocusFragment(navController)
             }
             composable("reaction_game") {
-                ReactionGame()
+                ReactionTimeGame()
             }
             composable("cup_shuffle") {
                 CupShuffleGame1(navController)
