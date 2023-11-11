@@ -77,22 +77,24 @@ fun OrganisationFragment() {
 
     var dateString by remember{ mutableStateOf("")}
     val dateDialogState = rememberMaterialDialogState()
-    Surface(Modifier) {
+    Surface(Modifier.padding(10.dp)) {
         Column {
-            Row {
-                Text(text = "Name")
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "Name of event  ")
                 OutlinedTextField(
                     value = text,
                     onValueChange = { text = it },
-                    label = { Text("Name") }
+                    label = { Text("Name") },
+                    modifier=Modifier.fillMaxWidth()
                 )
             }
-            Row {
-                Text(text = "Date")
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(text = "Date  ")
                 OutlinedTextField(
                     value=dateString,
                     onValueChange = {dateString=it},
-                    label={Text("DD/MM/YYYY")}
+                    label={Text("DD/MM/YYYY")},
+                    modifier=Modifier.fillMaxWidth()
                 )
             }
             Button(onClick = {

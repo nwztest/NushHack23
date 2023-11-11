@@ -29,7 +29,7 @@ fun BottomNavGraph(navController: NavHostController) {
                 CupShuffleGame1(navController)
             }
             composable("card_match") {
-                CardMatchGame()
+                CupShuffleGame1(navController)
             }
         }
         composable(route = BottomBarScreen.Organise.route) {
