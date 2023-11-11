@@ -20,4 +20,8 @@ I did not make this yet; pressing this opens Cup Shuffle.
 Pressing on the Organise tab allows one to come across an event organisation app. The user puts in the name of the activity, followed by the date of the event. By pressing add event, the activity is added, but only if the date input is valid.
 
 ## Relax
-Chatbot features have not been made yet. Deep Breathing opens an implementation of the famous 4-7-8 breathing exercise. 
+Chatbot features have not been made yet. Deep Breathing opens an implementation of the famous 4-7-8 breathing exercise.
+
+# Work distribution
+Neo Wee Zen: 50% (Android front-end, 50% of Android back-end)
+Arjun Venkatraman Rajesh: 50% (50% of Android back-end, creation of AI model which was ultimately not utilised)
