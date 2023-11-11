@@ -16,6 +16,7 @@ import kotlin.random.Random
 @Composable
 fun ReactionTimeGame() {
     var gameStarted by remember { mutableStateOf(false) }
+    var gameEnded by remember { mutableStateOf(false) }
     var startTime by remember { mutableStateOf(0L) }
     var reactionTime by remember { mutableStateOf(0L) }
     var averageTime by remember { mutableStateOf(0L) }
@@ -37,6 +38,7 @@ fun ReactionTimeGame() {
                     count++
                     averageTime = (averageTime * (count - 1) + reactionTime) / count
                     gameStarted = false
+                    gameEnded = true
                 }
             },
         verticalArrangement = Arrangement.Center,

@@ -1,6 +1,8 @@
 package com.example.nushhack23
 
 import CupShuffleGame1
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -9,6 +11,7 @@ import androidx.navigation.compose.navigation
 import com.example.nushhack23.FocusFragment
 import com.example.nushhack23.OrganisationFragment
 import com.example.nushhack23.RelaxFragment
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun BottomNavGraph(navController: NavHostController) {
     NavHost(
