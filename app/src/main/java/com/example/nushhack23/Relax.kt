@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -31,6 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.lazy.items
+import androidx.navigation.NavController
 
 data class ChatActivity(val name: String, val description: String, val id: Int)
 val chatActivities = listOf(
@@ -40,9 +42,9 @@ val chatActivities = listOf(
 )
 
 @Composable
-fun RelaxFragment() {
+fun RelaxFragment(navController: NavController) {
     Column() {
-        DeepBreathingCard()
+        DeepBreathingCard(navController)
         Spacer(modifier = Modifier.size(20.dp))
         Text("Chatbot", fontSize = 28.sp, modifier=Modifier.padding(10.dp))
         LazyRelax()
@@ -50,12 +52,13 @@ fun RelaxFragment() {
 }
 
 @Composable
-fun DeepBreathingCard() {
+fun DeepBreathingCard(navController: NavController) {
     Surface(shadowElevation = 20.dp,
         modifier = Modifier
             .padding(10.dp)
             .border(BorderStroke(1.dp, Color.Black), RoundedCornerShape(30.dp))
             .clip(RoundedCornerShape(30.dp))
+            .clickable { navController.navigate("deep_breathing") }
     ) {
         Box() {
            Image(

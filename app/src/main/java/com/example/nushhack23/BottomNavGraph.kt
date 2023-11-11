@@ -35,8 +35,14 @@ fun BottomNavGraph(navController: NavHostController) {
         composable(route = BottomBarScreen.Organise.route) {
             OrganisationFragment()
         }
-        composable(route = BottomBarScreen.Relax.route) {
-            RelaxFragment()
+        navigation(route = BottomBarScreen.Relax.route, startDestination = "relax_hub") {
+            composable("relax_hub"){
+                RelaxFragment(navController = navController)
+            }
+            composable("chat") {}
+            composable("deep_breathing") {
+                DeepBreathingFragment(navController = navController)
+            }
         }
     }
 }
