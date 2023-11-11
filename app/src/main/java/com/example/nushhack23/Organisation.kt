@@ -101,7 +101,7 @@ fun OrganisationFragment() {
                 val dateSplit = dateString.split('/')
                 try {
                     val day = dateSplit[0].toInt()
-                    val month = dateSplit[1].toInt()
+                    val month = dateSplit[1].toInt() - 1
                     val year = dateSplit[2].toInt() - 1900
                     val date = Date(year, month, day)
                     val event = Event(date, text)
@@ -116,7 +116,7 @@ fun OrganisationFragment() {
                 Text(text = "Add event")
             }
 
-            LazyColumn(modifier=Modifier.size(400.dp, 400.dp), verticalArrangement = Arrangement.spacedBy(4.dp), contentPadding = PaddingValues(10.dp, 10.dp)) {
+            LazyColumn(modifier=Modifier.size(400.dp, 460.dp), verticalArrangement = Arrangement.spacedBy(4.dp), contentPadding = PaddingValues(10.dp, 10.dp)) {
                 items(eventList) { event ->
                     EventCard(event)
                 }
@@ -138,7 +138,7 @@ fun OrganisationFragment() {
 
 @Composable
 fun EventCard(event: Event) {
-    val formatter = SimpleDateFormat("d/M/yyyy")
+    val formatter = SimpleDateFormat("d MMM yyyy")
     Card(modifier=Modifier.fillMaxWidth()) {
         Column {
             Text(event.name, fontSize = 40.sp, lineHeight = 46.sp)
