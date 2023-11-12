@@ -24,4 +24,5 @@ Chatbot features have not been made yet. Deep Breathing opens an implementation 
 
 # Work distribution
 Neo Wee Zen: 50% (Android front-end, 50% of Android back-end)
+
 Arjun Venkatraman Rajesh: 50% (50% of Android back-end, creation of AI model which was ultimately not utilised)
